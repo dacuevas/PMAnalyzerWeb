@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <title>PMAnalyzer</title>
+
+    <!-- Google web fonts -->
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700" rel='stylesheet' />
+    <link href='https://fonts.googleapis.com/css?family=Special+Elite' rel='stylesheet' type='text/css'>
+
+    <!-- The main CSS file -->
+    <link href="assets/css/style.css" rel="stylesheet" />
+
+    <!-- JavaScript Includes -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico" />
+
+</head>
+
+<body>
+    <div class="wrapper">
+    <h1 class="title">PMAnalyzer</h1>
+    <div id="info">
+        A web tool to process and analyze bacterial growth curve experimental data from 96-well Multi-phenotype Assay Plates (MAPs) or phenotype microarrays. <br/>
+        Upload your data to obtain predicted growth curve parameters and high resolution plots. <br/> <br/>
+        To cite:
+        <div style="font-size:70%; margin:0px; padding:0px">
+        <i>Cuevas DA, Garza D, Sanchez SE et al. <b>Elucidating genomic gaps using phenotypic profiles.</b><br/> F1000Research 2014, 3:210 (doi: <a href="http://dx.doi.org/10.12688/f1000research.5140.1" target="_blank">10.12688/f1000research.5140.1</a>)</i>
+        </div>
+        <img src="assets/img/raw_curves.png" alt="plot" style="border:0px; margin-bottom:-40px">
+    </div>
+    <div style="width:100%">
+    <form id="load" method="post" enctype="multipart/form-data">
+            <div id="loadheader">
+                <div class="floatright"><a id="help" href="help.html" target="_blank"><img id="helpimg" src="assets/img/question.png"></a></div>
+                <div class="center">Find Analysis</div>
+            </div>
+            <div id="loadbody">
+            <p>
+            Please enter the job number of your previous analysis
+            </p>
+                <input id="search" type="text" name="search_job" placeholder="Enter Job #">
+                <button id="searchbutton" type="button" disabled>Find</button>
+
+                    <br/>
+
+            </div>
+    </form>
+    <form id="upload" method="post" enctype="multipart/form-data">
+            <input type="hidden" id="jid" name="jid">
+            <input type="hidden" id="numsamples" name="numsamples">
+
+            <!-- Upload form section -->
+            <div id="uploadheader">
+                <div class="floatright"><a id="help" href="help.html" target="_blank"><img id="helpimg" src="assets/img/question.png"></a></div>
+                <div class="center">New Analysis</div>
+            </div>
+            <div id="uploadbody">
+            <p>
+            Please choose the data files to process, then click the upload button
+            </p>
+                <!-- Main upload button for OD files -->
+                <input id="mainfiles" class="button" type="file" name="datafiles[]" multiple>
+                <button id="uplink" type="button">Upload</button> <span id="uploadstatus"></span>
+<!--
+                <a id="uplink">Click to upload files</a> <span id="uploadstatus"></span>
+-->
+                    <br/> <br/>
+
+                <!-- Options section -->
+                <p>
+                Customize your options<!-- <a id="moreopts"><span id="optstat">click to show</span></a> -->
+                </p>
+<!--
+                <a id="moreopts">More options<span id="optstat">click to show</span></a>
+-->
+                <div id="optsection">
+                    <br/>
+                    <div class="optitem">File parser type
+                        <select name="parser">
+                            <option value="1">Multi-plate Reader (GT Analyst)</option>
+                            <option value="2">Well vs. Time</option>
+                            <option value="3">Multi-plate Reader (StakMax)</option>
+                        </select>
+                    </div>
+                    <div class="optitem">Plates
+                        <div style="margin-left:20px">
+                            <div>Choose plate file
+                                <select name="plateselect">
+                                    <option value="0">—</option>
+                                    <option value="pm_plate_1_v2.txt">PM plate 1</option>
+                                    <option value="pm_plate_2.txt">PM plate 2</option>
+                                </select>
+                            </div>
+                            <div>OR</div>
+                            <div>Upload plate file
+                                <input id="platefile" class="button" type="file" name="platefile">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="optitem">Sample names file
+                        <input id="samplefile" class="button" type="file" name="samplefile">
+                    </div>
+                    <div class="optitem">Generate figures
+                        <span style="margin-left:20px"></span>
+                        <input type="checkbox" name="figs" value="1" checked>
+                    </div>
+<!-- Specify number of plates -->
+<!--NOT CURRENTLY USED
+                    <div class="optitem">Number of plates
+                        <select name="numplates">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3" selected>3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                    </div>
+-->
+<!-- Specify sample names and replicates  -->
+<!--NOT CURRENTLY USED
+                    <div class="optitem">Samples and replicates <i>(*currently under construction)</i>
+                    <div style="margin-left:20px">
+                        <table id="srtab">
+                        <tr><td>Name:</td><td><input name="sample1" type="text" placeholder="e.g. ecoli"></td></tr>
+                        <tr><td>Replicate:</td><td><input name="replicate1" type="text" placeholder="e.g. rep1"></td></tr>
+                        </table>
+                        <a id="addsr">+Add more samples+</a>
+                    </div>
+                    </div>
+-->
+                </div>
+                    <br/> <br/>
+                <!-- <div id="submitdiv"> <input class="button" id="submit" type="submit" value="Submit job"> </div>  -->
+                <div id="submitdiv">
+                    <a id="submit" class="not-active">Click to submit job</a> <span id="status"></span>
+                </div>
+            </div>
+    </form>
+<!--
+    <div id="helpsection">
+            <div id="helpheader">Need help? (coming soon)</div>
+            <div id="helpbody">
+            <a class="not-active">Input</a> | <a class="not-active">Options</a> | <a class="not-active">Results</a>
+            </div>
+    </div>
+-->
+    </div>
+
+
+    <div id="results"></div>
+    <div class="push"></div>
+    </div> <!-- End wrapper -->
+
+    <footer>
+        <span id="edwardslab">
+            <a class="downloadsection" href="https://edwards.sdsu.edu/research/" title="Edwards Bioinformatics Lab Site" target="_blank">Visit Rob Edwards Lab</a>
+        </span>
+        <span id="footersection">
+            <a class="downloadsection" href="https://github.com/dacuevas/PMAnalyzer" title="Download from GitHub" target="_blank">PMAnalyzer @ GitHub</a>
+        </span>
+    </footer>
+
+
+
+    <script src="assets/js/script.js" type="text/javascript"></script>
+
+</body>
+</html>
