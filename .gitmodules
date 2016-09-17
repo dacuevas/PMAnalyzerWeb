@@ -1,0 +1,3 @@
+[submodule "PMAnalyzer"]
+	path = PMAnalyzer
+	url = https://github.com/dacuevas/PMAnalyzer.git
