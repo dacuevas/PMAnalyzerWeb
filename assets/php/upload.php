@@ -5,7 +5,7 @@
 # Preprocess files to be sure they are safe.
 #################################################
 
-require "assets/php/fileCheckUtil.php";
+require "fileCheckUtil.php";
 
 ################################################
 # Begin processing
@@ -33,10 +33,11 @@ foreach ($_FILES["datafiles"]["error"] as $idx => $error) {
 # Move files into their appropriate directory
 # Use the job id to name the directory
 $jid = $_POST["jid"];  # Job ID
-$uploads_dir = "uploads/".$jid."/data/";
+$pmdir = $_SERVER["DOCUMENT_ROOT"] . "/PMAnalyzerWeb";
+$uploads_dir = $pmdir . "/uploads/".$jid."/data/";
 
 # Create the directory
-if (!mkdir("uploads/".$jid, 0775, true)) {
+if (!mkdir($pmdir . "/uploads/".$jid, 0775, true)) {
     errorOut($retHash, 1, "Failed to create folders");
 }
 if (!mkdir($uploads_dir, 0775, true)) {

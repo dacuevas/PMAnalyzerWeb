@@ -8,7 +8,8 @@
 require "fileCheckUtil.php";
 
 function getFileLinks(&$retHash, $jid) {
-    $resdir = $retHash["info"]["resultsdir"];
+    #$resdir = $retHash["info"]["resultsdir"];
+    $resdir = "uploads/" . $jid . "/results/";
     $retHash["imgs"] =
         array("meangrowthcurves"    => "mean_growthcurves.png",
               "mediangrowthcurves"  => "median_growthcurves.png",
@@ -60,11 +61,12 @@ if (isset($_POST["figs"])) {
 
 
 # Set up directory paths
+$pmdir = $_SERVER["DOCUMENT_ROOT"] . "/PMAnalyzerWeb";
 $jid = $_POST["jid"];  # Job ID
-$jdir = "uploads/".$jid."/";
+$jdir = $pmdir . "/uploads/".$jid."/";
 $data = $jdir."data/";
 $results = $jdir."results/";
-$script = "PMAnalyzer/runPM";
+$script = $pmdir . "/PMAnalyzer/runPM";
 $errLog = $results."errLog.txt";
 
 if (!mkdir($results, 0775, true)) {
@@ -75,7 +77,7 @@ $pflag = "";
 # Check if a plate file needs to be used
 # Check if a pre-set plate was selected
 if ($_POST["plateselect"] != "0") {
-    $pfile = "PMAnalyzer/plates/".$_POST["plateselect"];
+    $pfile = $pmdir . "/PMAnalyzer/plates/".$_POST["plateselect"];
     $pflag = "-p ".$pfile;
 } else if ($_FILES["platefile"]["error"] != UPLOAD_ERR_NO_FILE) {
     # Check if a plate file was uploaded
