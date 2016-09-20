@@ -8,8 +8,7 @@
 require "fileCheckUtil.php";
 
 function getFileLinks(&$retHash, $jid) {
-    #$resdir = $retHash["info"]["resultsdir"];
-    $resdir = "uploads/" . $jid . "/results/";
+    $resdir = $retHash["info"]["fullresultsdir"];
     $retHash["imgs"] =
         array("meangrowthcurves"    => "mean_growthcurves.png",
               "mediangrowthcurves"  => "median_growthcurves.png",
@@ -171,7 +170,9 @@ exec("(cp ".$results."* ".$zipdir." && cd ".$jdir.
 exec("rm -r ".$zipdir);
 
 # Set return JSON object
-$retHash["info"] = array("resultsdir" => $results, "jobid" => $jid);
+$retHash["info"] = array("fullresultsdir" => $results,
+                         "jobid" => $jid,
+                         "resultsdir" => "uploads/" . $jid . "/results/");
 # Fill in file links for webpage display
 getFileLinks($retHash, $jid);
 
