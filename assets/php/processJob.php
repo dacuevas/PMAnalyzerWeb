@@ -72,6 +72,10 @@ if (!mkdir($results, 0775, true)) {
     errorOut($retHash, 1, "Failed to create result folder");
 }
 
+# Make sure permissions are set correctly. mkdir may not have worked
+# correctly due to umask
+chmod($results, 0775);
+
 $pflag = "";
 # Check if a plate file needs to be used
 # Check if a pre-set plate was selected

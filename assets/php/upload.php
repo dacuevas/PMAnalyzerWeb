@@ -34,18 +34,24 @@ foreach ($_FILES["datafiles"]["error"] as $idx => $error) {
 # Use the job id to name the directory
 $jid = $_POST["jid"];  # Job ID
 $pmdir = $_SERVER["DOCUMENT_ROOT"] . "/PMAnalyzerWeb";
-$uploads_dir = $pmdir . "/uploads/".$jid."/data/";
+$job_dir = $pmdir . "/uploads/".$jid."/";
+$data_dir = $job_dir."/data/";
 
 # Create the directory
-if (!mkdir($pmdir . "/uploads/".$jid, 0775, true)) {
+if (!mkdir($job_dir, 0775, true)) {
     errorOut($retHash, 1, "Failed to create folders");
 }
-if (!mkdir($uploads_dir, 0775, true)) {
+if (!mkdir($data_dir, 0775, true)) {
     errorOut($retHash, 1, "Failed to create folders");
 }
+# Make sure permissions are set correctly. mkdir may not have worked
+# correctly due to umask
+chmod($job_dir, 0775);
+chmod($data_dir, 0775);
+
 foreach ($_FILES["datafiles"]["tmp_name"] as $idx => $filename) {
     $name = $_FILES["datafiles"]["name"][$idx];
-    move_uploaded_file($filename, "$uploads_dir/$name");
+    move_uploaded_file($filename, "$data_dir/$name");
 }
 
 echo json_encode($retHash);
