@@ -13,12 +13,15 @@ function getFileLinks(&$retHash, $jid) {
         array("meangrowthcurves"    => "mean_growthcurves.png",
               "mediangrowthcurves"  => "median_growthcurves.png",
               "rawgrowthcurves"     => array(),
+              "densityplots"        => array(),
+              "boxplots"            => array(),
               "growthlevels"        => "growthlevels.png");
 
     $files = scandir($resdir);
+    # Find raw growth curves
     # Remove parent and current directory
     $files = array_diff($files, array('..', '.'));
-    foreach (glob($resdir."*.png") as $filename) {
+    foreach (glob($resdir."raw_curves*.png") as $filename) {
         # Don't add previous images
         $filename = basename($filename);
         if (in_array($filename, array_values($retHash["imgs"]))) {
@@ -27,6 +30,26 @@ function getFileLinks(&$retHash, $jid) {
         $name = preg_replace('/.png/','',$filename);
         $retHash["imgs"]["rawgrowthcurves"][$name] = $filename;
     }
+    # Find density plots
+    foreach (glob($resdir."density*.png") as $filename) {
+        # Don't add previous images
+        $filename = basename($filename);
+        if (in_array($filename, array_values($retHash["imgs"]))) {
+            continue;
+        }
+        $name = preg_replace('/.png/','',$filename);
+        $retHash["imgs"]["densityplots"][$name] = $filename;
+    }
+    # Find box plots
+    foreach (glob($resdir."box*.png") as $filename) {
+        # Don't add previous images
+        $filename = basename($filename);
+        if (in_array($filename, array_values($retHash["imgs"]))) {
+            continue;
+        }
+        $name = preg_replace('/.png/','',$filename);
+        $retHash["imgs"]["boxplots"][$name] = $filename;
+    }
 
     # Obtain result text files
     $retHash["txt"] = array(
@@ -34,8 +57,7 @@ function getFileLinks(&$retHash, $jid) {
         1 => array("Growth Parameters (per sample)"   => "logistic_params_sample_".$jid.".txt"),
         2 => array("Logistic Curves (per sample)"     => "logistic_curves_sample_".$jid.".txt"),
         3 => array("Growth Parameters (averaged)"     => "logistic_params_mean_".$jid.".txt"),
-        4 => array("Logistic Curves (averaged)"       => "logistic_curves_mean_".$jid.".txt"),
-        5 => array("All files (zip)"                  => "myfiles.zip"));
+        4 => array("Logistic Curves (averaged)"       => "logistic_curves_mean_".$jid.".txt"));
 }
 
 #################################################
@@ -71,6 +93,10 @@ $errLog = $results."errLog.txt";
 if (!mkdir($results, 0775, true)) {
     errorOut($retHash, 1, "Failed to create result folder");
 }
+
+# Make sure permissions are set correctly. mkdir may not have worked
+# correctly due to umask
+chmod($results, 0775);
 
 $pflag = "";
 # Check if a plate file needs to be used
@@ -173,6 +199,14 @@ exec("rm -r ".$zipdir);
 $retHash["info"] = array("fullresultsdir" => $results,
                          "jobid" => $jid,
                          "resultsdir" => "uploads/" . $jid . "/results/");
+
+# Get sample names from statistics file
+$statsfile = glob($results."sample_statistics_*.txt")[0];
+$snames;
+exec("tail -n +2 ".$statsfile." | cut -f 1 | uniq | sort",
+    $snames);
+$retHash["samplenames"] = $snames;
+
 # Fill in file links for webpage display
 getFileLinks($retHash, $jid);
 
