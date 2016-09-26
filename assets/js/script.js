@@ -208,11 +208,40 @@ function showResults(data) {
             html += '<td><a class="filelink" target="_blank" href="'+resdir+loc+'" download>Download</a></td></tr>';
         });
     }
+    // Include zip file
+    html += '<tr><td>All files (zip)</td><td></td>';
+    html += '<td><a class="filelink" target="_blank" href="'+resdir+'myfiles.zip" download>Download</a></td></tr>';
     html += '</table><br/>';
     $("#results").html(html);
 
     //****** Display result images ******//
     if ($("input[name=figs]").prop("checked") == true) {
+        html += '<div id="imgs">';
+        // Present summary figures
+        html += '<div class="resheader"><hr><h1>All Data</h1></div>';
+        html += '<div id="img">';
+        html += '<a class="imga" target="_blank" href="'+resdir+'growthlevels.png"><img src="'+resdir+'growthlevels.png" alt="Growth Levels"></a>';
+        html += '<a class="imga" target="_blank" href="'+resdir+'all_median.png"><img src="'+resdir+'all_median.png" alt="All Median Growth Curves"></a>';
+        html += '<a class="imga" target="_blank" href="'+resdir+'density_plots_all_samples.png"><img src="'+resdir+'density_plots_all_samples.png" alt="Density Plots"></a>';
+        html += '<a class="imga" target="_blank" href="'+resdir+'box_plots_all_samples.png"><img src="'+resdir+'box_plots_all_samples.png" alt="Box Plots"></a>';
+        html += '</div><br/>';
+        for (i in data["samplenames"]) {
+            var sn = data["samplenames"][i];
+            html +=  '<div class="resheader"><hr><h1>' + sn + '</h1></div>';
+            html += '<div id="img">';
+            html += '<a class="imga" target="_blank" href="'+resdir+'raw_curves_'+sn+'.png"><img src="'+resdir+'raw_curves_'+sn+'" alt="Raw Growth Curves"></a>';
+            //html += '</div><br/>';
+            //html += '<div id="img">';
+            html += '<a class="imga" target="_blank" href="'+resdir+'avg_'+sn+'.png"><img src="'+resdir+'avg_'+sn+'" alt="Average Growth Curves"></a>';
+            //html += '</div><br/>';
+            //html += '<div id="img">';
+            html += '<a class="imga" target="_blank" href="'+resdir+'log_'+sn+'.png"><img src="'+resdir+'log_'+sn+'" alt="Logistic Growth Curves"></a>';
+            html += '<a class="imga" target="_blank" href="'+resdir+'density_plots_'+sn+'.png"><img src="'+resdir+'density_plots_'+sn+'" alt="Density Plots"></a>';
+            html += '<a class="imga" target="_blank" href="'+resdir+'box_plots_'+sn+'.png"><img src="'+resdir+'box_plots_'+sn+'" alt="Box Plots"></a>';
+            html += '</div><br/>';
+        }
+        html += '</div>';
+        /*
         html += '<div id="imgs">';
         // Raw growth curves
         for (var fn in data["imgs"]["rawgrowthcurves"]) {
@@ -230,13 +259,14 @@ function showResults(data) {
         html += '<a class="imga" target="_blank" href="'+src+'"><img src="'+src+'" alt="Mean Growth Curves"></a> ';
         html += '</div><br/>';
         */
-
+        /*
         // Growth levels
         src = resdir+data["imgs"]["growthlevels"];
         html += '<div class="img">';
         html += '<h2 style="text-align:center;">Growth Levels</h2>';
         html += '<a class="imga" target="_blank" href="'+src+'"><img src="'+src+'" alt="Growth Levels">';
         html += '</div>';
+        */
         $("#results").html(html);
     }
 }

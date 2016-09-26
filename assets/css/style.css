@@ -250,6 +250,12 @@ p{
     color: #257691;
 }
 
+.resheader {
+    text-align: left;
+    margin: 0px 50px;
+    font-style: italic;
+}
+
 #imgs {
     text-align:center;
 }
