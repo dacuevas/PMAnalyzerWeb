@@ -151,7 +151,7 @@ p{
     padding: 4px;
 }
 
-#uploadstatus, #status{
+#uploadstatus, #searchstatus, #status{
     padding: 0px 3px;
     font-weight: bold;
 }

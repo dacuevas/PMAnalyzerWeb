@@ -11,6 +11,9 @@ $("#uplink").click(function(e){ uploadFile(e); });
 // Submit form link
 $("#submit").click(function(e){ processJob(e); });
 
+// Access data form link
+$("#searchbutton").click(function(e){ accessJob(e); });
+
 // Options section
 /*
 $("#moreopts").click(function(e){
@@ -111,6 +114,39 @@ function uploadFile(e) {
     }, 1500);
 }
 
+
+/***********************************
+ * Job access function
+ ***********************************/
+function accessJob(e) {
+    e.preventDefault();
+    var myform = $("#load")[0];
+    $.ajax({
+        url: "assets/php/accessJob.php",
+        type: "POST",
+        data: new FormData(myform),
+        cache: false,
+        contentType: false,
+        processData: false
+    })
+    .done(function(data){
+        data = JSON.parse(data);
+        if (data["status"] == 0) {
+            showResults(data);
+        }
+        else{
+            $("#searchstatus").html(data["status_msg"]);
+            showError("There was an error retrieving the data", true);
+        }
+    })
+    .fail(function(data){
+        data = JSON.parse(data);
+        if (data["status"] != 0){
+            $("#searchstatus").html(data["status_msg"]);
+        }
+    });
+}
+
 /***********************************
  * Job process function
  ***********************************/
@@ -138,7 +174,7 @@ function processJob(e) {
         }
         else{
             $("#status").html(data["status_msg"]);
-            showError("Please see log file");
+            showError("Please see log file", false);
         }
     })
     .fail(function(data){
@@ -267,9 +303,12 @@ function showResults(data) {
     }
 }
 
-function showError(msg) {
+function showError(msg, clear) {
     var htmlmsg = '<h2 class="errormsg">' + msg + '</h2>';
-    var old = $("#results").html();
+    var old = "";
+    if (!clear) {
+        old = $("#results").html();
+    }
     $("#results").html(old + htmlmsg)
 }
 
