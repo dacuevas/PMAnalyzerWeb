@@ -82,7 +82,8 @@ if (isset($_POST["figs"])) {
 
 
 # Set up directory paths
-$pmdir = $_SERVER["DOCUMENT_ROOT"] . "/PMAnalyzerWeb";
+$pmdir = $_SERVER["SCRIPT_FILENAME"];
+$pmdir = str_replace("/assets/php/processJob.php", "", $pmdir);
 $jid = $_POST["jid"];  # Job ID
 $jdir = $pmdir . "/uploads/".$jid."/";
 $data = $jdir."data/";

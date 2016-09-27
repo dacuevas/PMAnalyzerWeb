@@ -33,7 +33,9 @@ foreach ($_FILES["datafiles"]["error"] as $idx => $error) {
 # Move files into their appropriate directory
 # Use the job id to name the directory
 $jid = $_POST["jid"];  # Job ID
-$pmdir = $_SERVER["DOCUMENT_ROOT"] . "/PMAnalyzerWeb";
+# Get base directory
+$pmdir = $_SERVER["SCRIPT_FILENAME"];
+$pmdir = str_replace("/assets/php/upload.php", "", $pmdir);
 $job_dir = $pmdir . "/uploads/".$jid."/";
 $data_dir = $job_dir."/data/";
 
