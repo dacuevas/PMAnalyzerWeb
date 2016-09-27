@@ -229,15 +229,11 @@ function showResults(data) {
             var sn = data["samplenames"][i];
             html +=  '<div class="resheader"><hr><h1>' + sn + '</h1></div>';
             html += '<div id="img">';
-            html += '<a class="imga" target="_blank" href="'+resdir+'raw_curves_'+sn+'.png"><img src="'+resdir+'raw_curves_'+sn+'" alt="Raw Growth Curves"></a>';
-            //html += '</div><br/>';
-            //html += '<div id="img">';
-            html += '<a class="imga" target="_blank" href="'+resdir+'avg_'+sn+'.png"><img src="'+resdir+'avg_'+sn+'" alt="Average Growth Curves"></a>';
-            //html += '</div><br/>';
-            //html += '<div id="img">';
-            html += '<a class="imga" target="_blank" href="'+resdir+'log_'+sn+'.png"><img src="'+resdir+'log_'+sn+'" alt="Logistic Growth Curves"></a>';
-            html += '<a class="imga" target="_blank" href="'+resdir+'density_plots_'+sn+'.png"><img src="'+resdir+'density_plots_'+sn+'" alt="Density Plots"></a>';
-            html += '<a class="imga" target="_blank" href="'+resdir+'box_plots_'+sn+'.png"><img src="'+resdir+'box_plots_'+sn+'" alt="Box Plots"></a>';
+            html += '<a class="imga" target="_blank" href="'+resdir+'raw_curves_'+sn+'.png"><img src="'+resdir+'raw_curves_'+sn+'.png" alt="Raw Growth Curves"></a>';
+            html += '<a class="imga" target="_blank" href="'+resdir+'avg_'+sn+'.png"><img src="'+resdir+'avg_'+sn+'.png" alt="Average Growth Curves"></a>';
+            html += '<a class="imga" target="_blank" href="'+resdir+'log_'+sn+'.png"><img src="'+resdir+'log_'+sn+'.png" alt="Logistic Growth Curves"></a>';
+            html += '<a class="imga" target="_blank" href="'+resdir+'density_plots_'+sn+'.png"><img src="'+resdir+'density_plots_'+sn+'.png" alt="Density Plots"></a>';
+            html += '<a class="imga" target="_blank" href="'+resdir+'box_plots_'+sn+'.png"><img src="'+resdir+'box_plots_'+sn+'.png" alt="Box Plots"></a>';
             html += '</div><br/>';
         }
         html += '</div>';
