@@ -115,10 +115,11 @@ p{
 }
 
 #upload, #load, #helpbody{
-    font-family:'PT Sans Narrow', sans-serif;
+    //font-family:'PT Sans Narrow', sans-serif;
+    font-size:14px;
     color: black;
     background-color:white;
-    width:400px;
+    width:500px;
     border-radius:3px;
     margin:50px auto;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
