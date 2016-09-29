@@ -32,29 +32,148 @@
             </div>
             <div id="helpwindow">
             <div id="help-find" class="helpsechead">
-                Find Analysis
+                FIND ANALYSIS
             </div>
-            <div>
-                Obtain results for a previous analysis. The system keeps results for up to 2 weeks.
+            <div class="helpbody">
+                Obtain results for a previous analysis by using the <b><i>JOB ID</i></b> presented during the analysis. Please keep in mind that the system keeps results for up to 2 weeks.
             </div>
-            <br/>
-            <br/>
+            <br/><br/>
             <hr/>
             <br/>
             <div id="help-new" class="helpsechead">
-                New Analysis
-            </div>
-            <div>
-                Process new data and report results.
+                NEW ANALYSIS
             </div>
             <br/>
-            <br/>
+            <div class="helpbody">
+                <p id="uploading-files" class="helpsubhead">
+                    Uploading files
+                </p>
+                <ol id="helplist">
+                    <li>Click the <i>Choose files</i> button to select all plate files from the file directory. For ease of use, put all plate files in a single folder to quickly select all files needed.</il>
+                    <li>Click the <i>Upload</i> button. A message will appear next to the button indicating if the upload was successful or not.</li>
+                </ol>
+                <br/>
+                <p id="file-parser-type" class="helpsubhead">
+                    File parser type
+                </p>
+                The parser type chosen here informs the pipeline what specific format your data is in. All data files must be in plain text format. Time points are assumed to be in hours.
+                Here are the list of parsers provided by PMAnalyzer.
+                Please contact us at our <a href="https://groups.google.com/forum/#!forum/edwardslabtools" target="_blank">Q&amp;A site</a> if you have your data in a format other than those we provide here and we may just add it to our list.
+                <br/>
+                <br/>
+                <ol id="helplist">
+                    <li id="multi-plate-reader-gt-analyst"><i>Multi-plate Reader (GT Analyst)</i><br/>
+                        <b>DESCRIPTION</b><br/>
+                        This format is in a list-style format where each file contains the absorbance reads of a single plate over time.
+                        The number of files indicate the number of plates to process. The first line of the section is the timestamp.
+                        The next few lines could contain any information that will be skipped by the parser. Eventually, the parser will look for the absorbance data per well. This must be in
+                        the format of the well ID and the absorbance separated by at least one space.
+                        The parser will skip any data after this until it finds another timestamp.
+                        <a href="docs/multi-plate_reader_gtanalyst_example.txt" target="_blank">See example for Mult-plate Reader (GT Analyst).</a>
+                        <br/><br/>
+                        <b>FORMAT</b><br/>
+                        <p class="code">
+                            MM/DD/YYYY HH:MM:SS [AM|PM]<br/>
+                            [several lines of optional information]<br/>
+                            &lt;well id&gt; &nbsp;&nbsp;&nbsp; &lt;floating-point number&gt;<br/>
+                            &lt;well id&gt; &nbsp;&nbsp;&nbsp; &lt;floating-point number&gt;<br/>
+                            &lt;well id&gt; &nbsp;&nbsp;&nbsp; &lt;floating-point number&gt;<br/>
+                            ...<br/>
+                            [several lines of optional information]<br/>
+                            MM/DD/YYYY HH:MM:SS [PM|AM]<br/>
+                            [several lines of optional information]<br/>
+                            &lt;well id&gt; &nbsp;&nbsp;&nbsp; &lt;floating-point number&gt;<br/>
+                            &lt;well id&gt; &nbsp;&nbsp;&nbsp; &lt;floating-point number&gt;<br/>
+                            &lt;well id&gt; &nbsp;&nbsp;&nbsp; &lt;floating-point number&gt;<br/>
+                            ...<br/>
+                            [several lines of optional information]<br/>
+                        </p><br/>
+                        <b>FILENAME FORMAT</b><br/>
+                        The filename is important for this format because the sample name and replicate name are extracted from this.<br/>
+                        <p class="code">
+                        <b>&lt;samplename&gt;_&lt;replicatename&gt;[_optionalinfo].txt</b><br/>
+                        where<br/>
+                        &lt;samplename&gt; = Alphanumeric characters (A-Z, a-z, 0-9), periods (.), and dashes (-).<br/>
+                        &lt;replicatename&gt; = Alphanumeric characters (A-Z, a-z, 0-9).<br/>
+                        </p><br/>
+                    </li>
+                    <li id="well-vs-time"><i>Well vs. Time</i><br/>
+                        <b>DESCRIPTION</b><br/>
+                        This format is in a spreadsheet-style format where the input is one or more tab-delimited files.
+                        The first row are column headers of the information and time points.
+                        The information must specifically be: sample, rep, mainsource, compound, well, plate. They can be listed in any order.
+                        The rest of the column headers are the time points.
+                        The proceeding rows are the data for each column. In the time columns, the absorbance data will be present.
+                        <a href="docs/well_vs_time_example.txt" target="_blank">See example for Well vs. Time.</a>
+                        <br/><br/>
+                        <b>FORMAT</b><br/>
+                        <p class="code">
+                            [tab-delimited info headers]&lt;tab&gt;[tab-delimited time points]<br/>
+                            [tab-delimited info]&lt;tab&gt;[tab-delimited OD values]<br/>
+                            [tab-delimited info]&lt;tab&gt;[tab-delimited OD values]<br/>
+                            ...
+                        </p><br/>
+                        <b>FILENAME FORMAT</b><br/>
+                        There is no required format for this parser.<br/><br/>
+                    </li>
+                    <li id="multi-plate-reader-stakmax-list"><i>Multi-plate Reader (Stakmax: list)</i><br/>
+                        <b>DESCRIPTION</b><br/>
+                        This format is in a list-style format where each file contains the absorbance reads of multiple plates.
+                        The instrument setup this parser was written for automatically reads a group of plates, sequentially, in specific increments of time.
+                        The number of reads in a file indicate the number of plates to process. The number of files indicate the number of data points per plate.
+                        The first few lines can contain optional information. The first relevant line of data is tab-delimited and begins with "Temperature" followed by the well IDs.
+                        The next line is tab-delimited and begins with the temperature value followed by the absorbance values. A number of lines can follow this.
+                        The next relevant line contains the timestamp of the previously stated absorbance reads. This ends the read of a single plate and is repeated for the next plate.
+                        <a href="docs/multi-plate_reader_stakmax_list_example.txt" target="_blank">See example for Multi-plate Reader (Stakmax: list).</a>
+                        <br/><br/>
+                        <b>FORMAT</b><br/>
+                        <p class="code">
+                            [several lines of optional information]<br/>
+                            Temperature&lt;tab&gt;[tab-delimited well ids]<br/>
+                            [temperature value]&lt;tab&gt;[tab-delimited OD values]<br/>
+                            [several lines of optional information]<br/>
+                            [optional information] MM/DD/YYYY HH:MM:SS [AM|PM]<br/>
+                            [several lines of optional information]<br/>
+                            Temperature&lt;tab&gt;[tab-delimited well ids]<br/>
+                            [temperature value]&lt;tab&gt;[tab-delimited OD values]<br/>
+                            [several lines of optional information]<br/>
+                            [optional information] MM/DD/YYYY HH:MM:SS [AM|PM]<br/>
+                            ...
+                        </p><br/>
+                        <b>FILENAME FORMAT</b><br/>
+                        The filenames are required to be named with some alphanumeric title, followed by a space and the sequential number of the file. The parser uses the number
+                        to determine the order of the files in which they were produced. For example, a group of plates with 3 reads each would be named: Data 1.txt, Data 2.txt, Data 3.txt.
+                        Because of this, a <i>sample name file</i> (see section below) must be submitted with the data in order to determine which plate in the data files belong to which
+                        sample and replicate.
+                        <p class="code">
+                        <b>&lt;filename&gt; &lt;readnumber&gt;.txt</b><br/>
+                        where<br/>
+                        &lt;filename&gt; = Alphanumeric characters (A-Z, a-z, 0-9), periods (.), and dashes (-).<br/>
+                        &lt;readnumber&gt; = Numeric characters (0-9).<br/>
+                        </p><br/>
+                    </li>
+                </ol><br/>
+                <p id="plates" class="helpsubhead">
+                    Plates
+                </p>
+                You can choose one of the preloaded plates in the dropdown menu or you can upload one yourself.
+                <br/><br/>
+                <p id="sample-names-file" class="helpsubhead">
+                    Sample names file
+                </p>
+                <br/><br/>
+                <p id="generate-figures" class="helpsubhead">
+                    Generate figures
+                </p>
+                Checking this box will have PMAnalyzer produce multiple visualizations and growth curve figures of your data. This is checked by default.
+            </div>
+            <br/><br/>
             <hr/>
             <br/>
             <div id="help-results" class="helpsechead">
-                Results
+                RESULTS
             </div>
-            <div>
+            <div class="helpbody">
                 Produce growth curve figures and other statistics.
                 <br/>
                 For a full description of the output files from PMAnalyzer, download our <a href="docs/PMAnalyzerOutput.pdf" target="_blank">PDF</a>.

@@ -294,6 +294,26 @@ img:hover {
     font-size: 20px
 }
 
+.helpbody{
+    padding:0px 20px;
+    line-height:150%;
+}
+
+ol#helplist{
+    padding-left:15px;
+}
+
+.helpsubhead{
+    font-weight: bold;
+    font-size: 16px;
+    line-height:200%;
+}
+
+.code{
+    margin:0px 10px;
+    font-family: monospace;
+}
+
 /*----------------------------
     The Demo Footer
 -----------------------------*/
