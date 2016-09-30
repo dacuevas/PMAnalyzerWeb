@@ -132,6 +132,7 @@ function accessJob(e) {
     .done(function(data){
         data = JSON.parse(data);
         if (data["status"] == 0) {
+            $("#jid").val($("#loadjid").val());
             showResults(data);
         }
         else{

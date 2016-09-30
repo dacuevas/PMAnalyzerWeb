@@ -68,7 +68,7 @@ $retHash = array("status" => 0, "status_msg" => "ok");
 # Set up directory paths
 $pmdir = $_SERVER["SCRIPT_FILENAME"];
 $pmdir = str_replace("/assets/php/accessJob.php", "", $pmdir);
-$jid = $_POST["jid"];  # Job ID
+$jid = $_POST["loadjid"];  # Job ID
 $jdir = $pmdir . "/uploads/".$jid."/";
 $data = $jdir."data/";
 $results = $jdir."results/";

@@ -40,7 +40,7 @@
             <p>
             Please enter the job number of your previous analysis
             </p>
-                <input id="jid" type="text" name="jid" placeholder="Enter Job #">
+                <input id="loadjid" type="text" name="loadjid" placeholder="Enter Job #">
                 <button id="searchbutton" type="button">Find</button> <span id="searchstatus"></span>
                     <br/>
 
@@ -70,6 +70,7 @@
                 <!-- Options section -->
                 <p>
                 Customize your options<!-- <a id="moreopts"><span id="optstat">click to show</span></a> -->
+                <span style="font-style:italic; font-weight:normal;">&nbsp;&nbsp;&nbsp;<a href="help.html" target="_blank">Need help?</a></span>
                 </p>
 <!--
                 <a id="moreopts">More options<span id="optstat">click to show</span></a>
@@ -83,7 +84,7 @@
                             <option value="3">Multi-plate Reader (StakMax)</option>
                         </select>
                     </div>
-                    <div class="optitem">Plates
+                    <div class="optitem">Plates<br/>
                         <div style="margin-left:20px">
                             <div>Choose plate file
                                 <select name="plateselect">
