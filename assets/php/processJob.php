@@ -57,7 +57,9 @@ function getFileLinks(&$retHash, $jid) {
         1 => array("Growth Parameters (per sample)"   => "logistic_params_sample_".$jid.".txt"),
         2 => array("Logistic Curves (per sample)"     => "logistic_curves_sample_".$jid.".txt"),
         3 => array("Growth Parameters (averaged)"     => "logistic_params_mean_".$jid.".txt"),
-        4 => array("Logistic Curves (averaged)"       => "logistic_curves_mean_".$jid.".txt"));
+        4 => array("Logistic Curves (averaged)"       => "logistic_curves_mean_".$jid.".txt"),
+        5 => array("Metric statistics (per sample)"   => "sample_statistics_".$jid.".txt"),
+        6 => array("Metric statistics (per well)"     => "well_statistics_".$jid.".txt"));
 }
 
 #################################################
