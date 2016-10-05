@@ -255,13 +255,15 @@ function showResults(data) {
     if ($("input[name=figs]").prop("checked") == true) {
         html += '<div id="imgs">';
         // Present summary figures
-        html += '<div class="resheader"><hr><h1>All Data</h1></div>';
-        html += '<div id="img">';
-        html += '<a class="imga" target="_blank" href="'+resdir+'growthlevels.png"><img src="'+resdir+'growthlevels.png" alt="Growth Levels"></a>';
-        html += '<a class="imga" target="_blank" href="'+resdir+'all_median.png"><img src="'+resdir+'all_median.png" alt="All Median Growth Curves"></a>';
-        html += '<a class="imga" target="_blank" href="'+resdir+'density_plots_all_samples.png"><img src="'+resdir+'density_plots_all_samples.png" alt="Density Plots"></a>';
-        html += '<a class="imga" target="_blank" href="'+resdir+'box_plots_all_samples.png"><img src="'+resdir+'box_plots_all_samples.png" alt="Box Plots"></a>';
-        html += '</div><br/>';
+        if( data["samplenames"].length > 1) {
+            html += '<div class="resheader"><hr><h1>All Data</h1></div>';
+            html += '<div id="img">';
+            html += '<a class="imga" target="_blank" href="'+resdir+'growthlevels.png"><img src="'+resdir+'growthlevels.png" alt="Growth Levels"></a>';
+            html += '<a class="imga" target="_blank" href="'+resdir+'all_median.png"><img src="'+resdir+'all_median.png" alt="All Median Growth Curves"></a>';
+            html += '<a class="imga" target="_blank" href="'+resdir+'density_plots_all_samples.png"><img src="'+resdir+'density_plots_all_samples.png" alt="Density Plots"></a>';
+            html += '<a class="imga" target="_blank" href="'+resdir+'box_plots_all_samples.png"><img src="'+resdir+'box_plots_all_samples.png" alt="Box Plots"></a>';
+            html += '</div><br/>';
+        }
         for (i in data["samplenames"]) {
             var sn = data["samplenames"][i];
             html +=  '<div class="resheader"><hr><h1>' + sn + '</h1></div>';
