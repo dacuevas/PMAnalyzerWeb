@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <title>PMAnalyzer</title>
+
+    <!-- Google web fonts -->
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700" rel='stylesheet' />
+    <link href='https://fonts.googleapis.com/css?family=Special+Elite' rel='stylesheet' type='text/css'>
+
+    <!-- The main CSS file -->
+    <link href="../assets/css/style.css" rel="stylesheet" />
+
+    <!-- JavaScript Includes -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="../../assets/img/favicon.ico" />
+
+    <!-- Internal CSS -->
+    <style>
+        table{
+            margin:auto;
+        }
+        td,th{
+            width: 4rem;
+            height: 2rem;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+        th{
+            background: #257691;
+            border-color: white;
+            color: white;
+        }
+        .platesection{
+            margin:50px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="wrapper">
+    <h1 class="title">PMAnalyzer</h1>
+    <div id="info">
+        A web tool to process and analyze bacterial growth curve experimental data from 96-well Multi-phenotype Assay Plates (MAPs) or phenotype microarrays. <br/>
+        Upload your data to obtain predicted growth curve parameters and high resolution plots.
+    </div>
+    <div style="width:100%">
+        <div id="pmplate1" class="platesection">
+        <h2>PM plate 1</h2>
+        <table>
+        <tr>
+            <th style="background:white"></th>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+            <th>5</th>
+            <th>6</th>
+            <th>7</th>
+            <th>8</th>
+            <th>9</th>
+            <th>10</th>
+            <th>11</th>
+            <th>12</th>
+        </tr>
+        <tr>
+            <th>A</th>
+            <td>4</td>
+            <td>6</td>
+            <td>8</td>
+            <td>10</td>
+            <td>4</td>
+            <td>6</td>
+            <td>8</td>
+            <td>10</td>
+            <td>4</td>
+            <td>6</td>
+            <td>8</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <th>B</th>
+            <td>6</td>
+            <td>9</td>
+            <td>12</td>
+            <td>15</td>
+            <td>4</td>
+            <td>4</td>
+            <td>6</td>
+            <td>8</td>
+            <td>10</td>
+            <td>6</td>
+            <td>8</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <th>C</th>
+            <td>8</td>
+            <td>12</td>
+            <td>16</td>
+            <td>20</td>
+            <td>4</td>
+            <td>4</td>
+            <td>6</td>
+            <td>8</td>
+            <td>10</td>
+            <td>6</td>
+            <td>8</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <th>D</th>
+            <td>10</td>
+            <td>15</td>
+            <td>20</td>
+            <td>25</td>
+            <td>4</td>
+            <td>4</td>
+            <td>6</td>
+            <td>8</td>
+            <td>10</td>
+            <td>6</td>
+            <td>8</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <th>E</th>
+            <td>4</td>
+            <td>6</td>
+            <td>8</td>
+            <td>10</td>
+            <td>4</td>
+            <td>6</td>
+            <td>8</td>
+            <td>10</td>
+            <td>4</td>
+            <td>6</td>
+            <td>8</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <th>F</th>
+            <td>6</td>
+            <td>9</td>
+            <td>12</td>
+            <td>15</td>
+            <td>4</td>
+            <td>4</td>
+            <td>6</td>
+            <td>8</td>
+            <td>10</td>
+            <td>6</td>
+            <td>8</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <th>G</th>
+            <td>8</td>
+            <td>12</td>
+            <td>16</td>
+            <td>20</td>
+            <td>4</td>
+            <td>4</td>
+            <td>6</td>
+            <td>8</td>
+            <td>10</td>
+            <td>6</td>
+            <td>8</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <th>H</th>
+            <td>10</td>
+            <td>15</td>
+            <td>20</td>
+            <td>25</td>
+            <td>4</td>
+            <td>4</td>
+            <td>6</td>
+            <td>8</td>
+            <td>10</td>
+            <td>6</td>
+            <td>8</td>
+            <td>10</td>
+        </tr>
+        </table>
+        </div> <!-- End PM plate 1 -->
+
+        <hr>
+
+        <div id="pmplate2" class="platesection">
+        <h2>PM plate 2</h2>
+        <table>
+        <tr>
+            <th style="background:white"></th>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+            <th>5</th>
+            <th>6</th>
+            <th>7</th>
+            <th>8</th>
+            <th>9</th>
+            <th>10</th>
+            <th>11</th>
+            <th>12</th>
+        </tr>
+        <tr>
+            <th>A</th>
+            <td>4</td>
+            <td>6</td>
+            <td>8</td>
+            <td>10</td>
+            <td>4</td>
+            <td>6</td>
+            <td>8</td>
+            <td>10</td>
+            <td>4</td>
+            <td>6</td>
+            <td>8</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <th>B</th>
+            <td>6</td>
+            <td>9</td>
+            <td>12</td>
+            <td>15</td>
+            <td>4</td>
+            <td>4</td>
+            <td>6</td>
+            <td>8</td>
+            <td>10</td>
+            <td>6</td>
+            <td>8</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <th>C</th>
+            <td>8</td>
+            <td>12</td>
+            <td>16</td>
+            <td>20</td>
+            <td>4</td>
+            <td>4</td>
+            <td>6</td>
+            <td>8</td>
+            <td>10</td>
+            <td>6</td>
+            <td>8</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <th>D</th>
+            <td>10</td>
+            <td>15</td>
+            <td>20</td>
+            <td>25</td>
+            <td>4</td>
+            <td>4</td>
+            <td>6</td>
+            <td>8</td>
+            <td>10</td>
+            <td>6</td>
+            <td>8</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <th>E</th>
+            <td>4</td>
+            <td>6</td>
+            <td>8</td>
+            <td>10</td>
+            <td>4</td>
+            <td>6</td>
+            <td>8</td>
+            <td>10</td>
+            <td>4</td>
+            <td>6</td>
+            <td>8</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <th>F</th>
+            <td>6</td>
+            <td>9</td>
+            <td>12</td>
+            <td>15</td>
+            <td>4</td>
+            <td>4</td>
+            <td>6</td>
+            <td>8</td>
+            <td>10</td>
+            <td>6</td>
+            <td>8</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <th>G</th>
+            <td>8</td>
+            <td>12</td>
+            <td>16</td>
+            <td>20</td>
+            <td>4</td>
+            <td>4</td>
+            <td>6</td>
+            <td>8</td>
+            <td>10</td>
+            <td>6</td>
+            <td>8</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <th>H</th>
+            <td>10</td>
+            <td>15</td>
+            <td>20</td>
+            <td>25</td>
+            <td>4</td>
+            <td>4</td>
+            <td>6</td>
+            <td>8</td>
+            <td>10</td>
+            <td>6</td>
+            <td>8</td>
+            <td>10</td>
+        </tr>
+        </table>
+        </div>  <!-- End PM plate 2 -->
+
+        </div>
+        <div class="push"></div>
+        </div> <!-- End of wrapper -->
+    <footer>
+        <span id="edwardslab">
+            <a class="downloadsection" href="https://edwards.sdsu.edu/research/" title="Edwards Bioinformatics Lab Site" target="_blank">Visit Rob Edwards Lab</a>
+        </span>
+        <span id="footersection">
+            <a class="downloadsection" href="https://github.com/dacuevas/PMAnalyzer" title="Download from GitHub" target="_blank">PMAnalyzer @ GitHub</a>
+        </span>
+    </footer>
+</body>
+</html>
