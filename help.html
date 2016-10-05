@@ -48,7 +48,7 @@
                 <p id="uploading-files" class="helpsubhead">
                     Uploading files
                 </p>
-                <ol id="helplist">
+                <ol class="helplist">
                     <li>Click the <i>Choose files</i> button to select all plate files from the file directory. For ease of use, put all plate files in a single folder to quickly select all files needed.</il>
                     <li>Click the <i>Upload</i> button. A message will appear next to the button indicating if the upload was successful or not.</li>
                 </ol>
@@ -61,7 +61,7 @@
                 Please contact us at our <a href="https://groups.google.com/forum/#!forum/edwardslabtools" target="_blank">Q&amp;A site</a> if you have your data in a format other than those we provide here and we may just add it to our list.
                 <br/>
                 <br/>
-                <ol id="helplist">
+                <ol class="helplist">
                     <li id="multi-plate-reader-gt-analyst"><i>Multi-plate Reader (GT Analyst)</i><br/>
                         <b>DESCRIPTION</b><br/>
                         This format is in a list-style format where each file contains the absorbance reads of a single plate over time.
@@ -157,6 +157,22 @@
                     Plates
                 </p>
                 You can choose one of the preloaded plates in the dropdown menu or you can upload one yourself.
+                <br/>
+                The format for the plate file is a 4 column, no header, tab-delimited file that list the following information.<br/>
+                <ol class="helplist">
+                    <li>Well ID (e.g., H5)</li>
+                    <li>Compound source (e.g., Carbon)</li>
+                    <li>Substrate (e.g., D-Glucose-6-Phosphate)</li>
+                    <li>Substrate concentration (e.g., 0.25%)</li>
+                </ol>
+                <a href="docs/plate_example.txt" target="_blank">See plate format example (2.5 KB).</a>
+                <br/>
+                <br/>
+                The following plates are pre-loaded in PMAnalyzer.
+                <ul class="helplist">
+                    <li>PM plate 1 (MOPS minimal media, varying carbon and nitrogen compounds) <a href="docs/pm_plate.html#pmplate1" target="_blank">View</a></li>
+                    <li>PM plate 2 (MOPS minimal media, varying nitrogen, sulfur, and phosphorus compounds) <a href="docs/pm_plate.html#pmplate2" target="_blank">View</a></li>
+                </ul>
                 <br/><br/>
                 <p id="sample-names-file" class="helpsubhead">
                     Sample names file
@@ -182,10 +198,11 @@
             <br/>
             </div>
     </div>
-    </div>
 
 
     <div class="push"></div>
+    </div>
+    </div> <!-- End of wrapper -->
 
     <footer>
         <span id="edwardslab">
