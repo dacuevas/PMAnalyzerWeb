@@ -51,9 +51,8 @@ a:hover{
     min-height:100%;
     height: auto !important;
     height: 100%;
-//    margin: 0px 12% -40px;
     background-color:white;
-//    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    margin: 0 auto -40px;
 }
 
 
@@ -82,6 +81,7 @@ p{
     border:0px;
     height:28px;
     width:28px;
+    cursor:help;
 }
 
 .center{
@@ -115,10 +115,11 @@ p{
 }
 
 #upload, #load, #helpbody{
-    font-family:'PT Sans Narrow', sans-serif;
+    //font-family:'PT Sans Narrow', sans-serif;
+    font-size:14px;
     color: black;
     background-color:white;
-    width:400px;
+    width:500px;
     border-radius:3px;
     margin:50px auto;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
@@ -293,12 +294,33 @@ img:hover {
     font-size: 20px
 }
 
+.helpbody{
+    padding:0px 20px;
+    line-height:150%;
+}
+
+ol#helplist{
+    padding-left:15px;
+}
+
+.helpsubhead{
+    font-weight: bold;
+    font-size: 16px;
+    line-height:200%;
+}
+
+.code{
+    margin:0px 10px;
+    font-family: monospace;
+}
+
 /*----------------------------
     The Demo Footer
 -----------------------------*/
 
 footer, .push {
     height: 40px;
+    clear: both;
 }
 
 footer{

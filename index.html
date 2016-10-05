@@ -28,7 +28,7 @@
         <div style="font-size:70%; margin:0px; padding:0px">
         <i>Cuevas DA, Garza D, Sanchez SE et al. <b>Elucidating genomic gaps using phenotypic profiles.</b><br/> F1000Research 2014, 3:210 (doi: <a href="http://dx.doi.org/10.12688/f1000research.5140.1" target="_blank">10.12688/f1000research.5140.1</a>)</i>
         </div>
-        <img src="assets/img/raw_curves.png" alt="plot" style="border:0px; margin-bottom:-40px">
+        <img src="assets/img/raw_curves.png" alt="plot" style="border:0px; margin-bottom:-40px; cursor:default">
     </div>
     <div style="width:100%">
     <form id="load" method="post" enctype="multipart/form-data">
@@ -40,7 +40,7 @@
             <p>
             Please enter the job number of your previous analysis
             </p>
-                <input id="jid" type="text" name="jid" placeholder="Enter Job #">
+                <input id="loadjid" type="text" name="loadjid" placeholder="Enter Job #">
                 <button id="searchbutton" type="button">Find</button> <span id="searchstatus"></span>
                     <br/>
 
@@ -70,6 +70,7 @@
                 <!-- Options section -->
                 <p>
                 Customize your options<!-- <a id="moreopts"><span id="optstat">click to show</span></a> -->
+                <span style="font-style:italic; font-weight:normal;">&nbsp;&nbsp;&nbsp;<a href="help.html" target="_blank">Need help?</a></span>
                 </p>
 <!--
                 <a id="moreopts">More options<span id="optstat">click to show</span></a>
@@ -83,7 +84,7 @@
                             <option value="3">Multi-plate Reader (StakMax)</option>
                         </select>
                     </div>
-                    <div class="optitem">Plates
+                    <div class="optitem">Plates<br/>
                         <div style="margin-left:20px">
                             <div>Choose plate file
                                 <select name="plateselect">
