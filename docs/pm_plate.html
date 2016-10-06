@@ -20,17 +20,23 @@
     <style>
         table{
             margin:auto;
+            table-layout:fixed;
         }
         td,th{
-            width: 4rem;
-            height: 2rem;
             border: 1px solid #ccc;
             text-align: center;
         }
         th{
-            background: #257691;
+            background: #1496c1;
             border-color: white;
             color: white;
+        }
+        .rowhead{
+            width:40px;
+        }
+        td{
+            font-size: 12px;
+            padding: 5px 5px;
         }
         .platesection{
             margin:50px;
@@ -46,288 +52,297 @@
         A web tool to process and analyze bacterial growth curve experimental data from 96-well Multi-phenotype Assay Plates (MAPs) or phenotype microarrays. <br/>
         Upload your data to obtain predicted growth curve parameters and high resolution plots.
     </div>
+    <br/>
     <div style="width:100%">
         <div id="pmplate1" class="platesection">
         <h2>PM plate 1</h2>
-        <table>
-        <tr>
-            <th style="background:white"></th>
-            <th>1</th>
-            <th>2</th>
-            <th>3</th>
-            <th>4</th>
-            <th>5</th>
-            <th>6</th>
-            <th>7</th>
-            <th>8</th>
-            <th>9</th>
-            <th>10</th>
-            <th>11</th>
-            <th>12</th>
-        </tr>
-        <tr>
-            <th>A</th>
-            <td>4</td>
-            <td>6</td>
-            <td>8</td>
-            <td>10</td>
-            <td>4</td>
-            <td>6</td>
-            <td>8</td>
-            <td>10</td>
-            <td>4</td>
-            <td>6</td>
-            <td>8</td>
-            <td>10</td>
-        </tr>
-        <tr>
-            <th>B</th>
-            <td>6</td>
-            <td>9</td>
-            <td>12</td>
-            <td>15</td>
-            <td>4</td>
-            <td>4</td>
-            <td>6</td>
-            <td>8</td>
-            <td>10</td>
-            <td>6</td>
-            <td>8</td>
-            <td>10</td>
-        </tr>
-        <tr>
-            <th>C</th>
-            <td>8</td>
-            <td>12</td>
-            <td>16</td>
-            <td>20</td>
-            <td>4</td>
-            <td>4</td>
-            <td>6</td>
-            <td>8</td>
-            <td>10</td>
-            <td>6</td>
-            <td>8</td>
-            <td>10</td>
-        </tr>
-        <tr>
-            <th>D</th>
-            <td>10</td>
-            <td>15</td>
-            <td>20</td>
-            <td>25</td>
-            <td>4</td>
-            <td>4</td>
-            <td>6</td>
-            <td>8</td>
-            <td>10</td>
-            <td>6</td>
-            <td>8</td>
-            <td>10</td>
-        </tr>
-        <tr>
-            <th>E</th>
-            <td>4</td>
-            <td>6</td>
-            <td>8</td>
-            <td>10</td>
-            <td>4</td>
-            <td>6</td>
-            <td>8</td>
-            <td>10</td>
-            <td>4</td>
-            <td>6</td>
-            <td>8</td>
-            <td>10</td>
-        </tr>
-        <tr>
-            <th>F</th>
-            <td>6</td>
-            <td>9</td>
-            <td>12</td>
-            <td>15</td>
-            <td>4</td>
-            <td>4</td>
-            <td>6</td>
-            <td>8</td>
-            <td>10</td>
-            <td>6</td>
-            <td>8</td>
-            <td>10</td>
-        </tr>
-        <tr>
-            <th>G</th>
-            <td>8</td>
-            <td>12</td>
-            <td>16</td>
-            <td>20</td>
-            <td>4</td>
-            <td>4</td>
-            <td>6</td>
-            <td>8</td>
-            <td>10</td>
-            <td>6</td>
-            <td>8</td>
-            <td>10</td>
-        </tr>
-        <tr>
-            <th>H</th>
-            <td>10</td>
-            <td>15</td>
-            <td>20</td>
-            <td>25</td>
-            <td>4</td>
-            <td>4</td>
-            <td>6</td>
-            <td>8</td>
-            <td>10</td>
-            <td>6</td>
-            <td>8</td>
-            <td>10</td>
-        </tr>
+        <p class="description">
+        MOPS minimal media. Rows A-F target carbon compounds. Rows G-H target nitrogen compounds.
+        </p>
+        <br/>
+		<table>
+		    <tr>
+		        <th class="rowhead" style="background:white"></th>
+		        <th>1</th>
+		        <th>2</th>
+		        <th>3</th>
+		        <th>4</th>
+		        <th>5</th>
+		        <th>6</th>
+		        <th>7</th>
+		        <th>8</th>
+		        <th>9</th>
+		        <th>10</th>
+		        <th>11</th>
+		        <th>12</th>
+		    </tr>
+		    <tr>
+		        <th class="rowhead">A</th>
+		        <td>Propionate</td>
+		        <td>L-Glutamic Acid</td>
+		        <td>D-Glucose</td>
+		        <td>Potassium Sorbate</td>
+		        <td>Lactulose</td>
+		        <td>Glycerol</td>
+		        <td>Myo-Inositol</td>
+		        <td>D-Serine</td>
+		        <td>D-Galactose</td>
+		        <td>Oxalic Acid</td>
+		        <td>Malic Acid</td>
+		        <td>L-Methionine</td>
+		    </tr>
+		    <tr>
+		        <th class="rowhead">B</th>
+		        <td>Glycine</td>
+		        <td>Negative Control</td>
+		        <td>Quinate</td>
+		        <td>Succinate</td>
+		        <td>Dulcitol</td>
+		        <td>Alpha-D-Glucose</td>
+		        <td>L-Xylose</td>
+		        <td>L-Aspartic Acid</td>
+		        <td>D-Fructose</td>
+		        <td>L-Valine</td>
+		        <td>Pyruvate</td>
+		        <td>Lactate</td>
+		    </tr>
+		    <tr>
+		        <th class="rowhead">C</th>
+		        <td>Citric Acid</td>
+		        <td>D-Mannose</td>
+		        <td>L-Serine</td>
+		        <td>Salicoside</td>
+		        <td>Cellobiose</td>
+		        <td>Adonitol</td>
+		        <td>D-Glucose-6-Phosphate</td>
+		        <td>L-Sorbose</td>
+		        <td>D-Arabitol</td>
+		        <td>L-Lysine</td>
+		        <td>Trehalose</td>
+		        <td>Acetic Acid</td>
+		    </tr>
+		    <tr>
+		        <th class="rowhead">D</th>
+		        <td>L-Alanine</td>
+		        <td>L-Arabinose</td>
+		        <td>L-Threonine</td>
+		        <td>4 Hydroxy-Phenylacetate</td>
+		        <td>D-Ribose</td>
+		        <td>Melibiose</td>
+		        <td>D-Alanine</td>
+		        <td>L-Fucose</td>
+		        <td>L-Asparagine</td>
+		        <td>L-Leucine</td>
+		        <td>D-Aspartic Acid</td>
+		        <td>Inosine</td>
+		    </tr>
+		    <tr>
+		        <th class="rowhead">E</th>
+		        <td>Thymidine</td>
+		        <td>Sucrose</td>
+		        <td>D-Xylose</td>
+		        <td>L-Cysteine</td>
+		        <td>Alpha-D-Lactose</td>
+		        <td>Raffinose</td>
+		        <td>D-Asparagine</td>
+		        <td>Erythritol</td>
+		        <td>D-Cysteine</td>
+		        <td>L-Isoleucine</td>
+		        <td>L-Cysteic Acid</td>
+		        <td>Adenosine</td>
+		    </tr>
+		    <tr>
+		        <th class="rowhead">F</th>
+		        <td>Xylitol</td>
+		        <td>L-Glutamine</td>
+		        <td>L-Rhamnose</td>
+		        <td>Putrescine</td>
+		        <td>2 Deoxy-D-Ribose</td>
+		        <td>L-Arabitol</td>
+		        <td>D-Glucosamine</td>
+		        <td>L-Phenylalanine</td>
+		        <td>D-Glutamic Acid</td>
+		        <td>D-Arabinose</td>
+		        <td>L-Tryptophan</td>
+		        <td>L-Pyro-Glutamic Acid</td>
+		    </tr>
+		    <tr>
+		        <th class="rowhead">G</th>
+		        <td>Negative Control</td>
+		        <td>Tyramine</td>
+		        <td>Uridine</td>
+		        <td>Inosine</td>
+		        <td>Histamine</td>
+		        <td>L-Pyro-Glutamic Acid</td>
+		        <td>Cytidine</td>
+		        <td>Adenosine</td>
+		        <td>L-Arginine</td>
+		        <td>Thiourea</td>
+		        <td>Biuret</td>
+		        <td>Guanidine</td>
+		    </tr>
+		    <tr>
+		        <th class="rowhead">H</th>
+		        <td>L-Histidine</td>
+		        <td>Thymine</td>
+		        <td>L-Glutathione</td>
+		        <td>Allantoin</td>
+		        <td>Adenine</td>
+		        <td>Glycine</td>
+		        <td>Beta-Phenylethylamine</td>
+                <td>L-Proline</td>
+                <td>D-Methionine</td>
+                <td>Cytosine</td>
+                <td>D-Valine</td>
+                <td>N-Acetyl-D-Glucosamine</td>
+            </tr>
         </table>
-        </div> <!-- End PM plate 1 -->
+        </div>  <!-- End PM plate 1 -->
 
         <hr>
 
         <div id="pmplate2" class="platesection">
         <h2>PM plate 2</h2>
+        <p class="description">
+        MOPS minimal media. Rows A-C target nitrogen compounds. Rows D-F target sulfur compounds. Row H targets phosphorus compounds.
+        </p>
+        <br/>
         <table>
-        <tr>
-            <th style="background:white"></th>
-            <th>1</th>
-            <th>2</th>
-            <th>3</th>
-            <th>4</th>
-            <th>5</th>
-            <th>6</th>
-            <th>7</th>
-            <th>8</th>
-            <th>9</th>
-            <th>10</th>
-            <th>11</th>
-            <th>12</th>
-        </tr>
-        <tr>
-            <th>A</th>
-            <td>4</td>
-            <td>6</td>
-            <td>8</td>
-            <td>10</td>
-            <td>4</td>
-            <td>6</td>
-            <td>8</td>
-            <td>10</td>
-            <td>4</td>
-            <td>6</td>
-            <td>8</td>
-            <td>10</td>
-        </tr>
-        <tr>
-            <th>B</th>
-            <td>6</td>
-            <td>9</td>
-            <td>12</td>
-            <td>15</td>
-            <td>4</td>
-            <td>4</td>
-            <td>6</td>
-            <td>8</td>
-            <td>10</td>
-            <td>6</td>
-            <td>8</td>
-            <td>10</td>
-        </tr>
-        <tr>
-            <th>C</th>
-            <td>8</td>
-            <td>12</td>
-            <td>16</td>
-            <td>20</td>
-            <td>4</td>
-            <td>4</td>
-            <td>6</td>
-            <td>8</td>
-            <td>10</td>
-            <td>6</td>
-            <td>8</td>
-            <td>10</td>
-        </tr>
-        <tr>
-            <th>D</th>
-            <td>10</td>
-            <td>15</td>
-            <td>20</td>
-            <td>25</td>
-            <td>4</td>
-            <td>4</td>
-            <td>6</td>
-            <td>8</td>
-            <td>10</td>
-            <td>6</td>
-            <td>8</td>
-            <td>10</td>
-        </tr>
-        <tr>
-            <th>E</th>
-            <td>4</td>
-            <td>6</td>
-            <td>8</td>
-            <td>10</td>
-            <td>4</td>
-            <td>6</td>
-            <td>8</td>
-            <td>10</td>
-            <td>4</td>
-            <td>6</td>
-            <td>8</td>
-            <td>10</td>
-        </tr>
-        <tr>
-            <th>F</th>
-            <td>6</td>
-            <td>9</td>
-            <td>12</td>
-            <td>15</td>
-            <td>4</td>
-            <td>4</td>
-            <td>6</td>
-            <td>8</td>
-            <td>10</td>
-            <td>6</td>
-            <td>8</td>
-            <td>10</td>
-        </tr>
-        <tr>
-            <th>G</th>
-            <td>8</td>
-            <td>12</td>
-            <td>16</td>
-            <td>20</td>
-            <td>4</td>
-            <td>4</td>
-            <td>6</td>
-            <td>8</td>
-            <td>10</td>
-            <td>6</td>
-            <td>8</td>
-            <td>10</td>
-        </tr>
-        <tr>
-            <th>H</th>
-            <td>10</td>
-            <td>15</td>
-            <td>20</td>
-            <td>25</td>
-            <td>4</td>
-            <td>4</td>
-            <td>6</td>
-            <td>8</td>
-            <td>10</td>
-            <td>6</td>
-            <td>8</td>
-            <td>10</td>
-        </tr>
+            <tr>
+                <th class="rowhead" style="background:white"></th>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+                <th>5</th>
+                <th>6</th>
+                <th>7</th>
+                <th>8</th>
+                <th>9</th>
+                <th>10</th>
+                <th>11</th>
+                <th>12</th>
+            </tr>
+            <tr>
+                <th class="rowhead">A</th>
+                <td>L-Glutamic Acid</td>
+                <td>L-Asparagine</td>
+                <td>L-Alanine</td>
+                <td>L-Methione</td>
+                <td>Positive Control</td>
+                <td>L-Glutamine</td>
+                <td>L-Cysteine</td>
+                <td>L-Serine</td>
+                <td>L-Threonine</td>
+                <td>L-Leucine</td>
+                <td>L-Lysine</td>
+                <td>Negative Control</td>
+            </tr>
+            <tr>
+                <th class="rowhead">B</th>
+                <td>D-Glutamic Acid</td>
+                <td>D-Asparagine</td>
+                <td>D-Alanine</td>
+                <td>L-Tryptophan</td>
+                <td>D-Aspartic Acid</td>
+                <td>L-Phenylalanine</td>
+                <td>D-Cysteine</td>
+                <td>D-Serine</td>
+                <td>L-Valine</td>
+                <td>L-Isoleucine</td>
+                <td>Tyrosine</td>
+                <td>L-Citrulline</td>
+            </tr>
+            <tr>
+                <th class="rowhead">C</th>
+                <td>L-Ornithine</td>
+                <td>Putrescine</td>
+                <td>D-Glucosamine</td>
+                <td>2-Deoxy-D-Ribose</td>
+                <td>Thymidine</td>
+                <td>Acetamide</td>
+                <td>Blank</td>
+                <td>Blank 15</td>
+                <td>Blank</td>
+                <td>Blank</td>
+                <td>Blank</td>
+                <td>Blank</td>
+            </tr>
+            <tr>
+                <th class="rowhead">D</th>
+                <td>Negative Control</td>
+                <td>Blank</td>
+                <td>Blank</td>
+                <td>Blank</td>
+                <td>Blank</td>
+                <td>Blank</td>
+                <td>Blank</td>
+                <td>Blank</td>
+                <td>Blank</td>
+                <td>Blank</td>
+                <td>Blank</td>
+                <td>Blank</td>
+            </tr>
+            <tr>
+                <th class="rowhead">E</th>
+                <td>L-Methionine</td>
+                <td>L-Cysteine</td>
+                <td>L-Cysteic Acid</td>
+                <td>Glutathione</td>
+                <td>Thiourea</td>
+                <td>L-Djenkolic Acid</td>
+                <td>Acetyl Cysteine</td>
+                <td>1-Butane-Sulfonic Acid</td>
+                <td>Taurocholic Acid</td>
+                <td>Potassium-Tetra-Thionate</td>
+                <td>Magnesium Sulfate</td>
+                <td>Diethyl-Dithiophosphate</td>
+            </tr>
+            <tr>
+                <th class="rowhead">F</th>
+                <td>D-Methionine</td>
+                <td>D-Cysteine</td>
+                <td>Isethionic Acid</td>
+                <td>Sulfanic Acid</td>
+                <td>DL-Alpha-Amino-N-Butyric Acid</td>
+                <td>Sodium Thiosulfate</td>
+                <td>DL-Ethionine</td>
+                <td>N-Acetyl-DL-Methionine</td>
+                <td>Methane Sulfonic Acid</td>
+                <td>Gamma-Amino-N-Butyric Acid</td>
+                <td>Taurine</td>
+                <td>N-Acetyl-L-Cysteine</td>
+            </tr>
+            <tr>
+                <th class="rowhead">G</th>
+                <td>Blank</td>
+                <td>Blank</td>
+                <td>Blank</td>
+                <td>Blank</td>
+                <td>Blank</td>
+                <td>Blank</td>
+                <td>Blank</td>
+                <td>Blank</td>
+                <td>Blank</td>
+                <td>Blank</td>
+                <td>Blank</td>
+                <td>Blank</td>
+            </tr>
+            <tr>
+                <th class="rowhead">H</th>
+                <td>Negative Control</td>
+                <td>Diethyl-Dithiophosphate</td>
+                <td>D-Glucose-6-Phosphate</td>
+                <td>Adenosine-5-Monophosphate</td>
+                <td>Sodium Pyrophosphate</td>
+                <td>Sodium Thiophosphate</td>
+                <td>Potassium phosphate</td>
+                <td>DL-Alpha-Glycerophosphate</td>
+                <td>Creatinephosphate</td>
+                <td>Beta-Glycerophosphate</td>
+                <td>Blank</td>
+                <td>Blank</td>
+            </tr>
         </table>
         </div>  <!-- End PM plate 2 -->
 
