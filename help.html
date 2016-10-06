@@ -31,9 +31,36 @@
                 <div class="center">Help Section</div>
             </div>
             <div id="helpwindow">
+            <div id="help-contents" class="helpsechead">
+                <span class="uline">CONTENTS</span>
+            </div>
+            <br/>
+            <div class="helpbody" style="margin-left:30px">
+                <ol class="helplist">
+                    <li><a href="#help-find">Find Analysis</a></li>
+                    <li><a href="#help-new">New Analysis</a></li>
+                    <ol class="helplist" type="a">
+                        <li><a href="#uploading-files">Uploading files</a></li>
+                        <li><a href="#file-parser-type">File parser type</a></li>
+                        <ol class="helplist" type="i">
+                            <li><a href="#multi-plate-reader-gt-analyst">Multi-plate Reader (GT Analyst)</a></li>
+                            <li><a href="#well-vs-time">Well vs. Time</a></li>
+                            <li><a href="#multi-plate-reader-stakmax-list">Multi-plate Reader (Stakmax: list)</a></li>
+                        </ol>
+                        <li><a href="#plates">Plates</a></li>
+                        <li><a href="#sample-names-file">Sample names file</a></li>
+                        <li><a href="#generate-figures">Generate figures</a></li>
+                    </ol>
+                    <li><a href="#help-results">Results</a></li>
+                </ol>
+            </div>
+            <br/><br/>
+            <hr/>
+            <br/>
             <div id="help-find" class="helpsechead">
                 FIND ANALYSIS
             </div>
+            <br/>
             <div class="helpbody">
                 Obtain results for a previous analysis by using the <b><i>JOB ID</i></b> presented during the analysis. Please keep in mind that the system keeps results for up to 2 weeks.
             </div>
@@ -46,7 +73,7 @@
             <br/>
             <div class="helpbody">
                 <p id="uploading-files" class="helpsubhead">
-                    Uploading files
+                    <span class="uline">Uploading files</span>
                 </p>
                 <ol class="helplist">
                     <li>Click the <i>Choose files</i> button to select all plate files from the file directory. For ease of use, put all plate files in a single folder to quickly select all files needed.</il>
@@ -54,7 +81,7 @@
                 </ol>
                 <br/>
                 <p id="file-parser-type" class="helpsubhead">
-                    File parser type
+                    <span class="uline">File parser type</span>
                 </p>
                 The parser type chosen here informs the pipeline what specific format your data is in. All data files must be in plain text format. Time points are assumed to be in hours.
                 Here are the list of parsers provided by PMAnalyzer.
@@ -154,7 +181,7 @@
                     </li>
                 </ol><br/>
                 <p id="plates" class="helpsubhead">
-                    Plates
+                    <span class="uline">Plates</span>
                 </p>
                 You can choose one of the preloaded plates in the dropdown menu or you can upload one yourself.
                 <br/>
@@ -175,11 +202,24 @@
                 </ul>
                 <br/><br/>
                 <p id="sample-names-file" class="helpsubhead">
-                    Sample names file
+                    <span class="uline">Sample names file</span>
+                </p>
+                Sample names file is only required when using the Multi-plate Reader (Stakmax) parsers since every plate read is recorded in a single file per Stakmax iteration.
+                The sample names file allows the parser to determine which plate belongs to which sample and replicate. The format of the file is a two-column, tab-delimited file
+                with no header information. The order of the rows relates to the order of the plates in the input files.
+                The first column specifies the sample name and the second column specifies the replicate identifier.
+                <a href="docs/sample_names_file_example.txt" target="_blank">See an example for the sample names file.</a>
+                <br/>
+                <b>FORMAT</b><br/>
+                <p class="code">
+                    samplename&lt;tab&gt;replicatename<br/>
+                    samplename&lt;tab&gt;replicatename<br/>
+                    samplename&lt;tab&gt;replicatename<br/>
+                    ...
                 </p>
                 <br/><br/>
                 <p id="generate-figures" class="helpsubhead">
-                    Generate figures
+                    <span class="uline">Generate figures</span>
                 </p>
                 Checking this box will have PMAnalyzer produce multiple visualizations and growth curve figures of your data. This is checked by default.
             </div>
@@ -189,10 +229,17 @@
             <div id="help-results" class="helpsechead">
                 RESULTS
             </div>
+            <br/>
             <div class="helpbody">
-                Produce growth curve figures and other statistics.
+                Primary results from this web implementation are the output files produced from the PMAnalyzer pipeline. This includes growth curve parameters, growth metrics, per-sample statistics, and per-well statistics.
+                All files are downloadable and viewable from the summary files table. A zip file is generated that allows you to easily download all files and figures. Files are in
+                tab-delimited format for easy loading in various programming environments and spreadsheet applications.
+                In addition to the result files, if the option is chosen various plots are generated displaying these results. All images are generated in high resolution and are included
+                in the zip file.
                 <br/>
-                For a full description of the output files from PMAnalyzer, download our <a href="docs/PMAnalyzerOutput.pdf" target="_blank">PDF</a>.
+                Please note that all results are stored for a maximum of <b>two weeks</b> and can be retrieved until then using the <b>Job ID</b> generated at time of submission.
+                <br/>
+                For a full description of the output files from PMAnalyzer, view our <a href="docs/PMAnalyzerOutput.pdf" target="_blank">PDF</a>.
             </div>
             <br/>
             <br/>

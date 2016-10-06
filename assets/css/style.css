@@ -43,7 +43,8 @@ a, a:visited {
 }
 
 a:hover{
-    text-decoration:underline;
+    border-bottom: 1px dashed #389dc1;
+    text-decoration:none;
     cursor: pointer;
 }
 
@@ -291,7 +292,13 @@ img:hover {
 
 .helpsechead{
     font-weight: bold;
-    font-size: 20px
+    font-size: 20px;
+    font-style: italic;
+}
+
+.uline{
+    border-bottom: 1px dashed #000000;
+    text-decoration: none;
 }
 
 .helpbody{
@@ -299,7 +306,7 @@ img:hover {
     line-height:150%;
 }
 
-ol#helplist{
+.helplist{
     padding-left:15px;
 }
 
