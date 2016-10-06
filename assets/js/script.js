@@ -241,7 +241,7 @@ function showResults(data) {
         var fn = data["txt"][i];
         $.each(fn, function(name, loc) {
             html += '<tr><td>'+name+'</td>';
-            html += '<td><a class="filelink" target="_blank" href="'+resdir+loc+'">View</a></td>';
+            html += '<td><a class="filelink" target="_blank" href="showTable.php?jid='+jid+'&fname='+loc+'&title='+name+'">View</a></td>';
             html += '<td><a class="filelink" target="_blank" href="'+resdir+loc+'" download>Download</a></td></tr>';
         });
     }
