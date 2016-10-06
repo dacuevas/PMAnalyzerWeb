@@ -15,11 +15,6 @@
 
 
 html{
-    background-color:#ebebec;
-
-    background-image:-webkit-radial-gradient(center, #ebebec, #e4e4e4);
-    background-image:-moz-radial-gradient(center, #ebebec, #e4e4e4);
-    background-image:radial-gradient(center, #ebebec, #e4e4e4);
     height: 100%;
 }
 
