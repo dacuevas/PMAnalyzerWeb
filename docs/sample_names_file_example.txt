@@ -1,0 +1,6 @@
+e.coli	rep1
+e.coli	rep2
+e.coli	rep3
+s.aureus	rep1
+s.aureus	rep2
+s.aureus	rep3
