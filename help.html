@@ -45,13 +45,14 @@
                         <ol class="helplist" type="i">
                             <li><a href="#multi-plate-reader-gt-analyst">Multi-plate Reader (GT Analyst)</a></li>
                             <li><a href="#well-vs-time">Well vs. Time</a></li>
-                            <li><a href="#multi-plate-reader-stakmax-list">Multi-plate Reader (Stakmax: list)</a></li>
+                            <li><a href="#multi-plate-reader-stakmax">Multi-plate Reader (Stakmax)</a></li>
                         </ol>
                         <li><a href="#plates">Plates</a></li>
                         <li><a href="#sample-names-file">Sample names file</a></li>
                         <li><a href="#generate-figures">Generate figures</a></li>
                     </ol>
                     <li><a href="#help-results">Results</a></li>
+                    <li><a href="#help-sample-data">Sample Data</a></li>
                 </ol>
             </div>
             <br/><br/>
@@ -143,7 +144,7 @@
                         <b>FILENAME FORMAT</b><br/>
                         There is no required format for this parser.<br/><br/>
                     </li>
-                    <li id="multi-plate-reader-stakmax-list"><i>Multi-plate Reader (Stakmax: list)</i><br/>
+                    <li id="multi-plate-reader-stakmax"><i>Multi-plate Reader (Stakmax)</i><br/>
                         <b>DESCRIPTION</b><br/>
                         This format is in a list-style format where each file contains the absorbance reads of multiple plates.
                         The instrument setup this parser was written for automatically reads a group of plates, sequentially, in specific increments of time.
@@ -151,7 +152,7 @@
                         The first few lines can contain optional information. The first relevant line of data is tab-delimited and begins with "Temperature" followed by the well IDs.
                         The next line is tab-delimited and begins with the temperature value followed by the absorbance values. A number of lines can follow this.
                         The next relevant line contains the timestamp of the previously stated absorbance reads. This ends the read of a single plate and is repeated for the next plate.
-                        <a href="docs/multi-plate_reader_stakmax_list_example.txt" target="_blank">See an example for Multi-plate Reader (Stakmax: list) (9 KB).</a>
+                        <a href="docs/multi-plate_reader_stakmax_list_example.txt" target="_blank">See an example for Multi-plate Reader (Stakmax) (9 KB).</a>
                         <br/><br/>
                         <b>FORMAT</b><br/>
                         <p class="code">
@@ -243,7 +244,19 @@
             </div>
             <br/>
             <br/>
+            <hr/>
+            <br/>
+            <div id="help-sample-data" class="helpsechead">
+                SAMPLE DATA
             </div>
+            <br/>
+            <div class="helpbody">
+                Download this <a href="docs/sample_data.zip" download>sample data set</a> if you would like to test out PMAnalyzer for yourself.
+            </div>
+            <br/>
+            <br/>
+            </div>
+           </div>
     </div>
 
 
