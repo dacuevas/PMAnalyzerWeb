@@ -175,7 +175,7 @@ function processJob(e) {
         }
         else{
             $("#status").html(data["status_msg"]);
-            showError("Please see log file", false);
+            showError("Results not available due to error", false);
         }
     })
     .fail(function(data){
