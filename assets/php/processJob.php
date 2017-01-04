@@ -90,6 +90,7 @@ $jid = $_POST["jid"];  # Job ID
 $jdir = $pmdir . "/uploads/".$jid."/";
 $data = $jdir."data/";
 $results = $jdir."results/";
+$fileCheckScript = "python3 " . $pmdir . "/PMAnalyzer/py/Parsers/FileCheck.py";
 $script = $pmdir . "/PMAnalyzer/runPM";
 $errLog = $results."errLog.txt";
 
@@ -150,8 +151,19 @@ if ($_FILES["samplefile"]["error"] != UPLOAD_ERR_NO_FILE) {
     $sflag = "-s ".$sfile;
 }
 
-# Run analysis
+# Run file format checks
 $result;  # Capture result of analysis
+exec($fileCheckScript." ".$data." ".$parser. " 2>&1",
+     $output,
+     $result);
+
+# Check if an error occurred
+if ($result) {
+    errorOut($retHash, 1, $output);
+}
+
+# Run analysis
+$result;
 exec($script." -i ".$data." -o ".$jid." -d ".$results.
     " -t ".$parser." ".$sflag." ".$figs." -v ".$pflag." > ".$errLog." 2>&1",
      $output,

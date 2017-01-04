@@ -14,6 +14,20 @@ $("#submit").click(function(e){ processJob(e); });
 // Access data form link
 $("#searchbutton").click(function(e){ accessJob(e); });
 
+// Remove plate file
+$("#removeplate").click(function(e){
+    var newhtml = 'Upload plate file' +
+        ' <input id="platefile" class="button" type="file" name="platefile"> <a id="removeplate">Reset</a>';
+    $("#platefilediv").html(newhtml);
+});
+
+// Remove sample names file
+$("#removesample").click(function(e){
+    var newhtml = 'Sample names file' +
+        ' <input id="samplefile" class="button" type="file" name="samplefile"> <a id="removesample">Reset</a>';
+    $("#samplenamesfilediv").html(newhtml);
+});
+
 // Options section
 /*
 $("#moreopts").click(function(e){
@@ -175,7 +189,7 @@ function processJob(e) {
         }
         else{
             $("#status").html(data["status_msg"]);
-            showError("Please see log file", false);
+            showError("Results not available due to error", false);
         }
     })
     .fail(function(data){
