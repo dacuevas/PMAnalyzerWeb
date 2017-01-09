@@ -90,7 +90,7 @@ $jid = $_POST["jid"];  # Job ID
 $jdir = $pmdir . "/uploads/".$jid."/";
 $data = $jdir."data/";
 $results = $jdir."results/";
-$fileCheckScript = "python3 " . $pmdir . "/PMAnalyzer/py/Parsers/FileCheck.py";
+$fileCheckScript = "python3.4 " . $pmdir . "/PMAnalyzer/py/Parsers/FileCheck.py";
 $script = $pmdir . "/PMAnalyzer/runPM";
 $errLog = $results."errLog.txt";
 
